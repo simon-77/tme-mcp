@@ -1,0 +1,10 @@
+[project]
+name = "tme-mcp"
+version = "0.1.0"
+description = "TME electronic components — search, pricing, stock, datasheets"
+license = "MIT"
+dependencies = [
+    "fastmcp",
+    "requests",
+]
+requires-python = ">=3.10"
