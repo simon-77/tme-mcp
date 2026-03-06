@@ -6,8 +6,11 @@ import os
 from urllib.parse import quote, urlencode
 
 import requests
+from dotenv import load_dotenv
 
 logger = logging.getLogger(__name__)
+
+load_dotenv()
 
 API_BASE = "https://api.tme.eu"
 

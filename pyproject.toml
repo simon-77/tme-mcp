@@ -6,5 +6,6 @@ license = "MIT"
 dependencies = [
     "fastmcp",
     "requests",
+    "python-dotenv",
 ]
 requires-python = ">=3.10"
