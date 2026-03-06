@@ -25,6 +25,7 @@ def search_products(
     page: int = 1,
     limit: int = 20,
     category_id: str | None = None,
+    with_stock: bool = False,
 ) -> dict:
     """Search TME products by keyword or part number.
 
@@ -33,10 +34,11 @@ def search_products(
         page: Page number (default: 1)
         limit: Results per page, max 200 (default: 20)
         category_id: Optional category ID filter
+        with_stock: Only return products that are in stock (default: False)
     """
-    params = {"SearchPlain": search, "SearchPage": page}
-    if limit != 20:
-        params["Limit"] = limit
+    params = {"SearchPlain": search, "SearchPage": page, "Limit": limit}
+    if with_stock:
+        params["SearchWithStock"] = "true"
     if category_id:
         params["SearchCategory"] = category_id
     return _make_request("Products/Search", params)
