@@ -195,26 +195,14 @@ def get_delivery_time(symbols: list[str], amounts: list[int] | None = None) -> d
 
 
 @mcp.tool()
-def generate_tme_url(symbol: str | None = None, symbols_with_quantities: dict[str, int] | None = None) -> str:
-    """Generate a TME product page URL or a cart URL with quantities.
-
-    Provide either a single symbol for a product page link, or a dict of
-    {symbol: quantity} pairs to build a pre-filled cart link.
+def generate_tme_url(symbol: str) -> str:
+    """Generate a TME product page URL.
 
     Args:
-        symbol: Single TME product symbol (for product page URL)
-        symbols_with_quantities: Dict mapping symbols to quantities (for cart URL)
+        symbol: TME product symbol
     """
     country = TME_COUNTRY.lower()
-    base = f"https://www.tme.eu/{country}/en"
-
-    if symbols_with_quantities:
-        parts = [f"{quote(s)}:{q}" for s, q in symbols_with_quantities.items()]
-        return f"{base}/cart/add/?products={','.join(parts)}"
-    elif symbol:
-        return f"{base}/details/{quote(symbol)}/"
-    else:
-        return f"{base}/"
+    return f"https://www.tme.eu/{country}/en/details/{quote(symbol)}/"
 
 
 # ---------------------------------------------------------------------------
