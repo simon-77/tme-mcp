@@ -248,7 +248,7 @@ Locale env vars are optional -- defaults are `PL`/`EN`/`PLN` (see [Configuration
 | Tool | Description |
 |------|-------------|
 | `get_delivery_time` | Estimated delivery time for up to 50 symbols |
-| `generate_tme_url` | Build a product page URL or a pre-filled cart URL |
+| `generate_tme_url` | Generate a product page URL for a TME symbol |
 
 ## Configuration
 
