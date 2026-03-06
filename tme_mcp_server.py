@@ -34,9 +34,9 @@ def search_products(
         limit: Results per page, max 200 (default: 20)
         category_id: Optional category ID filter
     """
-    params = {"SearchPlain": search, "SearchPage": page, "SearchWithStock": ""}
+    params = {"SearchPlain": search, "SearchPage": page}
     if limit != 20:
-        params["SearchPageSize"] = limit
+        params["Limit"] = limit
     if category_id:
         params["SearchCategory"] = category_id
     return _make_request("Products/Search", params)
