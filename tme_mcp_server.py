@@ -36,7 +36,7 @@ def search_products(
         category_id: Optional category ID filter
         with_stock: Only return products that are in stock (default: False)
     """
-    params = {"SearchPlain": search, "SearchPage": page, "Limit": limit}
+    params = {"SearchPlain": search, "SearchPage": page, "SearchLimit": limit}
     if with_stock:
         params["SearchWithStock"] = "true"
     if category_id:
